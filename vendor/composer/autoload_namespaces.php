@@ -7,5 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Detection' => array($vendorDir . '/mobiledetect/mobiledetectlib/namespaced'),
-    'Barryvdh' => array($vendorDir . '/barryvdh/reflection-docblock/src'),
 );

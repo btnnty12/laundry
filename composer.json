@@ -12,6 +12,7 @@
         "aymanalhattami/filament-slim-scrollbar": "*",
         "bezhansalleh/filament-shield": "*",
         "diogogpinto/filament-auth-ui-enhancer": "*",
+        "doctrine/dbal": "^4.3",
         "filament/filament": "^3.3",
         "hasnayeen/themes": "*",
         "joaopaulolndev/filament-edit-profile": "^1.0",
