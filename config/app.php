@@ -1,26 +1,5 @@
 <?php
 
-    // Tambahan di bagian bawah config/app.php sebelum return
-    if (app()->isLocal()) {
-        $providers = [
-            Barryvdh\Debugbar\ServiceProvider::class,
-        ];
-
-        $aliases = [
-            'Debugbar' => Barryvdh\Debugbar\Facade::class,
-        ];
-
-        config(['app.providers' => array_merge(config('app.providers', []), $providers)]);
-        config(['app.aliases' => array_merge(config('app.aliases', []), $aliases)]);
-    }
-        $providers = [];
-        $aliases = [];
-
-    if (env('APP_ENV') === 'local') {
-        $providers[] = Barryvdh\Debugbar\ServiceProvider::class;
-        $aliases['Debugbar'] = Barryvdh\Debugbar\Facade::class;
-    }
-
 return [
 
     /*
@@ -145,21 +124,4 @@ return [
     ],
 
     'asset_prefix' => env('ASSET_PREFIX', ''),
-'providers' => array_merge([
-
-        /*
-         * Laravel Framework Service Providers...
-         */
-        Illuminate\Auth\AuthServiceProvider::class,
-        // dst...
-
-    ], $providers),
-
-    'aliases' => array_merge([
-
-        'App' => Illuminate\Support\Facades\App::class,
-        // dst...
-
-    ], $aliases),
-
 ];
