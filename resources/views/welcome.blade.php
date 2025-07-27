@@ -407,22 +407,35 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="logo">
-                <i class="fas fa-tshirt"></i>
-                Fresh Laundry
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Beranda</a></li>
-                <li><a href="#services">Layanan</a></li>
-                <li><a href="#pricing">Harga</a></li>
-                <li><a href="#contact">Kontak</a></li>
-                <li><a href="#" onclick="showLogin()">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+<!-- Header -->
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <i class="fas fa-tshirt"></i>
+            Fresh Laundry
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#services">Layanan</a></li>
+            <li><a href="#pricing">Harga</a></li>
+            <li><a href="#contact">Kontak</a></li>
+            <li>
+                <a href="{{ route('filament.admin.auth.login') }}"
+                   class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal">
+                    Login
+                </a>
+            </li>
+            @if (Route::has('filament.auth.register'))
+                <li>
+                    <a href="{{ route('filament.auth.register') }}"
+                       class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
+                        Register
+                    </a>
+                </li>
+            @endif
+        </ul>
+    </nav>
+</header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
