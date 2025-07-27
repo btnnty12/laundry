@@ -1,16 +1,18 @@
 {
   "build": {
-    "builder": "NIXPACKS"
+    "builder": "NIXPACKS",
+    "buildCommand": "composer install --no-dev --optimize-autoloader"
   },
   "deploy": {
-    "startCommand": "composer run start",
+    "startCommand": "php -S 0.0.0.0:8080 -t public",
     "restartPolicyType": "ON_FAILURE",
-    "healthcheckPath": "/"
+    "healthcheckPath": "/health"
   },
   "ports": [
     {
-      "port": 3000,
+      "port": 8080,
       "protocol": "HTTP"
     }
   ]
+  
 }
