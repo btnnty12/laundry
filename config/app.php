@@ -1,5 +1,19 @@
 <?php
 
+    // Tambahan di bagian bawah config/app.php sebelum return
+    if (app()->isLocal()) {
+        $providers = [
+            Barryvdh\Debugbar\ServiceProvider::class,
+        ];
+
+        $aliases = [
+            'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        ];
+
+        config(['app.providers' => array_merge(config('app.providers', []), $providers)]);
+        config(['app.aliases' => array_merge(config('app.aliases', []), $aliases)]);
+    }
+
 return [
 
     /*

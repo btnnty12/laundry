@@ -86,6 +86,7 @@ use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
         ->setSort(10)
         ->canAccess(fn () => auth()->user()->id === 1)
         ->shouldRegisterNavigation(false)
+        ->shouldShowEmailForm()
         ->shouldShowDeleteAccountForm(false)
         ->shouldShowSanctumTokens()
         ->shouldShowBrowserSessionsForm()
@@ -163,7 +164,7 @@ class User extends Authenticatable implements HasAvatar
     public function getFilamentAvatarUrl(): ?string
     {
         $avatarColumn = config('filament-edit-profile.avatar_column', 'avatar_url');
-        return $this->$avatarColumn ? Storage::url("$this->$avatarColumn") : null;
+        return $this->$avatarColumn ? Storage::url($this->$avatarColumn) : null;
     }
 }
 ```

@@ -2,6 +2,7 @@
 
 namespace Illuminate\Database\Eloquent;
 
+use Closure;
 use Illuminate\Contracts\Queue\QueueableCollection;
 use Illuminate\Contracts\Queue\QueueableEntity;
 use Illuminate\Contracts\Support\Arrayable;
@@ -711,14 +712,14 @@ class Collection extends BaseCollection implements QueueableCollection
      */
     public function partition($key, $operator = null, $value = null)
     {
-        return parent::partition($key, $operator, $value)->toBase();
+        return parent::partition(...func_get_args())->toBase();
     }
 
     /**
      * Get an array with the values of a given key.
      *
-     * @param  string|array<array-key, string>|null  $value
-     * @param  string|null  $key
+     * @param  string|array<array-key, string>|Closure|null  $value
+     * @param  string|Closure|null  $key
      * @return \Illuminate\Support\Collection<array-key, mixed>
      */
     public function pluck($value, $key = null)
@@ -761,7 +762,7 @@ class Collection extends BaseCollection implements QueueableCollection
 
         foreach ($this as $model) {
             if (! $model->hasRelationAutoloadCallback()) {
-                $model->autoloadRelationsUsing($callback);
+                $model->autoloadRelationsUsing($callback, $this);
             }
         }
 
